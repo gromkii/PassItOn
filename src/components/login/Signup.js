@@ -18,20 +18,50 @@ class Signup extends Component {
     };
 
     this.onSubmit = this.onSubmit.bind(this);
+    this.onReturnToLogin = this.onReturnToLogin.bind(this);
   }
 
   onSubmit() {
 
   }
 
+  onReturnToLogin() {
+
+  }
+
   render() {
     return (
       <View>
-        <TextInput/>
+        <TextInput
+          style={style.input}
+          value={this.state.username}
+          onChangeText={username => this.setState({username})}
+        />
+
+        <TextInput
+          style={style.input}
+          value={this.state.email}
+          onChangeText={email => this.setState({email})}
+        />
+
+        <TextInput
+          style={style.input}
+          value={this.state.password}
+          onChangeText={password => this.setState({password})}
+          secureTextEntry={true}
+        />
+
 
         <Button
           title={"Create New Account"}
+          onPress={this.onSubmit}
         />
+
+        <Button
+          title={"Return to Login"}
+          onPress={this.onReturnToLogin}
+        />
+
 
       </View>
     )

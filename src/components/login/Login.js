@@ -46,11 +46,13 @@ class Login extends Component {
   render() {
     return (
       <View style={style.container}>
+
         <TextInput
           style={style.input}
           value={this.state.username}
           onChangeText={username => this.setState({username})}
         />
+
         <TextInput
           style={style.input}
           value={this.state.username}
@@ -62,6 +64,12 @@ class Login extends Component {
           onPress={this.onLogin}
           title={"Login"}
         />
+
+        <Button
+          onPress={this.onLogin}
+          title={"Sign Up!"}
+        />
+
       </View>
     )
   }

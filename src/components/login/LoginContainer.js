@@ -10,7 +10,8 @@ const style = StyleSheet.create({
   container: {
     flex:1,
     flexDirection:"column",
-    alignItems:"center"
+    alignItems:"center",
+    justifyContent: "center"
   },
   image: {
     height:250,

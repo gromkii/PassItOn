@@ -22,7 +22,17 @@ class Signup extends Component {
   }
 
   onSubmit() {
-
+    axios.post('http://127.0.0.1:3000/api/auth/signup',{
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
+    })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   onReturnToLogin() {

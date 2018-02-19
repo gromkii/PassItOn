@@ -5,6 +5,7 @@ import {
   StyleSheet
 } from 'react-native';
 import Login from '../../components/login/Login';
+import LogoText from '../../components/Common/LogoText';
 
 
 class LoginScreen extends Component {
@@ -21,18 +22,25 @@ class LoginScreen extends Component {
     });
   };
 
+  createAccountHandler = () => {
+    this.props.navigator.push({
+      screen:'com.pass.Signup',
+      title: 'Create New Account'
+    })
+  };
+
   render() {
     return(
       <KeyboardAvoidingView
         behavior={"position"}
         style={style.container}
       >
-        <Image
-          source={require('../../../assets/Logo.png')}
-          style={style.image}
-        />
+        <LogoText />
 
-        <Login handleLogin={this.loginHandler}/>
+        <Login
+          handleLogin={this.loginHandler}
+          handleCreateAccount={this.createAccountHandler}
+        />
 
       </KeyboardAvoidingView>
     )

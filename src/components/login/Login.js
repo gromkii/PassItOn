@@ -7,19 +7,6 @@ import {
 } from 'react-native';
 import axios from 'axios';
 
-const style = StyleSheet.create({
-  container: {
-    flex:1,
-  },
-  input: {
-    margin:20,
-    height:55,
-    borderWidth:1,
-    borderColor:"#cccccc",
-    borderRadius:5
-  }
-});
-
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -28,11 +15,9 @@ class Login extends Component {
       username: '',
       password: ''
     };
-
-    this.onLogin = this.onLogin.bind(this);
   }
 
-  onLogin() {
+  onLogin = () => {
     axios.post('http://127.0.0.1:3000/api/auth/login', {
       username: this.state.username,
       password: this.state.password
@@ -45,13 +30,16 @@ class Login extends Component {
       .catch(err => {
         console.log(err);
       })
-  }
+  };
+
+  onCreateAccount = () => {
+    this.props.handleCreateAccount();
+  };
 
 
   render() {
     return (
       <View style={style.container}>
-
         <TextInput
           style={style.input}
           value={this.state.username}
@@ -71,7 +59,7 @@ class Login extends Component {
         />
 
         <Button
-          onPress={this.onLogin}
+          onPress={this.onCreateAccount}
           title={"Sign Up!"}
         />
 
@@ -79,5 +67,19 @@ class Login extends Component {
     )
   }
 }
+
+const style = StyleSheet.create({
+  container: {
+    flex:1,
+  },
+  input: {
+    margin:5,
+    padding: 5,
+    height:55,
+    borderWidth:1,
+    borderColor:"#cccccc",
+    borderRadius:5
+  }
+});
 
 export default Login;

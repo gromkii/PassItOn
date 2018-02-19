@@ -1,42 +1,13 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import { Navigation } from 'react-native-navigation';
+import { Provider } from 'react-redux';
 
-import React, { Component } from 'react';
-import {
-  StyleSheet, Text,
-  View
-} from 'react-native';
-import LoginContainer from './src/components/login/LoginContainer';
+import LoginScreen from './src/screens/LoginScreen/LoginScreen';
 
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <LoginContainer/>
-      </View>
-    );
+Navigation.registerComponent("com.pass.Login", LoginScreen, store, Provider);
+
+Navigation.startSingleScreenApp({
+  screen: {
+    screen:"com.pass.Login",
+    title:"Login"
   }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
 });

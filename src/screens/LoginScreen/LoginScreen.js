@@ -4,7 +4,7 @@ import {
   Image,
   StyleSheet
 } from 'react-native';
-import Login from './Login';
+import Login from '../../components/login/Login';
 
 const style = StyleSheet.create({
   container: {
@@ -20,7 +20,7 @@ const style = StyleSheet.create({
   }
 });
 
-class LoginContainer extends Component {
+class LoginScreen extends Component {
   render() {
     return(
       <KeyboardAvoidingView
@@ -40,4 +40,4 @@ class LoginContainer extends Component {
   }
 }
 
-export default LoginContainer;
+export default LoginScreen;

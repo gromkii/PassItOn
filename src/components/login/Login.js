@@ -33,9 +33,14 @@ class Login extends Component {
   }
 
   onLogin() {
-    axios.get('http://127.0.0.1:3000/api/auth/login')
+    axios.post('http://127.0.0.1:3000/api/auth/login', {
+      username: this.state.username,
+      password: this.state.password
+    })
       .then(res => {
-        console.log(res.data);
+        if (res.data) {
+          this.props.handleLogin(this.state.username);
+        }
       })
       .catch(err => {
         console.log(err);
@@ -55,7 +60,7 @@ class Login extends Component {
 
         <TextInput
           style={style.input}
-          value={this.state.username}
+          value={this.state.password}
           onChangeText={password => this.setState({password})}
           secureTextEntry={true}
         />

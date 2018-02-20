@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import {
   View,
-  TextInput,
+  Text,
   Button,
   StyleSheet
 } from 'react-native';
 import axios from 'axios';
+import TextField from '../Common/TextField';
+import BigButton from '../Common/BigButton';
+
 
 class Login extends Component {
   constructor(props) {
@@ -40,19 +43,22 @@ class Login extends Component {
   render() {
     return (
       <View style={style.container}>
-        <TextInput
-          style={style.input}
+
+        <TextField
           value={this.state.username}
           onChangeText={username => this.setState({username})}
+          secureTextEntry={false}
+          placeholder="Username"
         />
 
-        <TextInput
-          style={style.input}
+        <TextField
           value={this.state.password}
           onChangeText={password => this.setState({password})}
+          placeholder="Password"
           secureTextEntry={true}
         />
 
+        {/*
         <Button
           onPress={this.onLogin}
           title={"Login"}
@@ -62,6 +68,19 @@ class Login extends Component {
           onPress={this.onCreateAccount}
           title={"Sign Up!"}
         />
+        */}
+
+        <BigButton onPress={this.onLogin}>
+          <Text style={style.buttonStyle}>
+            Login
+          </Text>
+        </BigButton>
+
+        <BigButton onPress={this.onCreateAccount}>
+          <Text style={style.buttonStyle}>
+            Sign up!
+          </Text>
+        </BigButton>
 
       </View>
     )
@@ -70,7 +89,9 @@ class Login extends Component {
 
 const style = StyleSheet.create({
   container: {
-    flex:1,
+    width:"100%",
+    alignItems: "center",
+    justifyContent: "center"
   },
   input: {
     margin:5,
@@ -79,6 +100,10 @@ const style = StyleSheet.create({
     borderWidth:1,
     borderColor:"#cccccc",
     borderRadius:5
+  },
+  buttonStyle: {
+    color:"#fff",
+    fontSize:24,
   }
 });
 

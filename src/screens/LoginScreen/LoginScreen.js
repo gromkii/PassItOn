@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {
   KeyboardAvoidingView,
-  Image,
-  StyleSheet
+  StyleSheet,
+  View
 } from 'react-native';
+
 import Login from '../../components/login/Login';
-import LogoText from '../../components/Common/LogoText';
+import LinearGradientBG from '../../components/Common/LinearGradientBG';
+import LogoWhite from '../../components/Common/LogoWhite';
 
 
 class LoginScreen extends Component {
@@ -35,12 +37,15 @@ class LoginScreen extends Component {
         behavior={"position"}
         style={style.container}
       >
-        <LogoText />
-
-        <Login
-          handleLogin={this.loginHandler}
-          handleCreateAccount={this.createAccountHandler}
-        />
+        <LinearGradientBG>
+          <View style={style.loginContainer}>
+            <LogoWhite />
+            <Login
+              handleLogin={this.loginHandler}
+              handleCreateAccount={this.createAccountHandler}
+            />
+          </View>
+        </LinearGradientBG>
 
       </KeyboardAvoidingView>
     )
@@ -51,14 +56,16 @@ class LoginScreen extends Component {
 const style = StyleSheet.create({
   container: {
     flex:1,
-    flexDirection:"column",
-    alignItems:"center",
-    justifyContent: "center"
   },
   image: {
     height:250,
     width:250,
     margin:50
+  },
+  loginContainer: {
+    flex:1,
+    alignItems: "center",
+    justifyContent: "space-around",
   }
 });
 

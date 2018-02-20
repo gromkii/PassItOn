@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, KeyboardAvoidingView, Image } from 'react-native';
-import TextField from '../../components/Common/TextField';
+import { StyleSheet, KeyboardAvoidingView, Image } from 'react-native';
 import LinearGradientBG from '../../components/Common/LinearGradientBG';
 
 import LogoSolo from '../../../assets/LogoSolo.png';
+import Signup from '../../components/login/Signup';
 
 
 class SignupScreen extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      username: '',
+      email: '',
+      password: ''
+    }
   }
 
   render() {
@@ -17,11 +23,7 @@ class SignupScreen extends Component {
         <LinearGradientBG style={style.imgContainer}>
           <Image source={LogoSolo} style={style.image} />
 
-          <View>
-            <TextField />
-            <TextField />
-            <TextField />
-          </View>
+          <Signup />
         </LinearGradientBG>
       </KeyboardAvoidingView>
     );
@@ -34,7 +36,6 @@ const style = StyleSheet.create({
     justifyContent: "center"
   },
   imgContainer: {
-    width:"100%",
     alignItems: "center",
     justifyContent: "space-around"
   },
@@ -43,8 +44,8 @@ const style = StyleSheet.create({
     flexDirection: "column"
   },
   image: {
-    height: 50,
-    width: 50,
+    resizeMode: "contain",
+    width: 150,
   }
 });
 

@@ -59,13 +59,12 @@ const style = StyleSheet.create({
   },
   image: {
     height:250,
-    width:250,
-    margin:50
+    resizeMode: "contain"
   },
   loginContainer: {
     flex:1,
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "center",
   }
 });
 

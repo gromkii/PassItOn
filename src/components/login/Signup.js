@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import {
   View,
-  TextInput,
-  Button,
-  StyleSheet
+  Text,
+  StyleSheet,
 } from 'react-native';
 import axios from 'axios';
+import TextField from '../Common/TextField';
+import BigButton from '../Common/BigButton';
 
 class Signup extends Component {
   constructor(props) {
@@ -16,12 +17,9 @@ class Signup extends Component {
       email:'',
       password:''
     };
-
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onReturnToLogin = this.onReturnToLogin.bind(this);
   }
 
-  onSubmit() {
+  onSubmit = () => {
     axios.post('http://127.0.0.1:3000/api/auth/signup',{
       username: this.state.username,
       email: this.state.email,
@@ -33,49 +31,51 @@ class Signup extends Component {
       .catch(err => {
         console.log(err);
       })
-  }
-
-  onReturnToLogin() {
-
-  }
+  };
 
   render() {
     return (
-      <View>
-        <TextInput
-          style={style.input}
-          value={this.state.username}
-          onChangeText={username => this.setState({username})}
-        />
+      <View style={style.container}>
+          <TextField
+            placeholder={"Username"}
+            onChangeText={username => this.setState({username})}
+            value={this.state.username}
+          />
 
-        <TextInput
-          style={style.input}
-          value={this.state.email}
-          onChangeText={email => this.setState({email})}
-        />
+          <TextField
+            placeholder={"Email Address"}
+            onChangeText={email => this.setState({email})}
+            value={this.state.email}
+          />
 
-        <TextInput
-          style={style.input}
-          value={this.state.password}
-          onChangeText={password => this.setState({password})}
-          secureTextEntry={true}
-        />
+          <TextField
+            placeholder={"Password"}
+            onChangeText={password => this.setState({password})}
+            value={this.state.password}
+            secureTextEntry={true}
+          />
 
-
-        <Button
-          title={"Create New Account"}
-          onPress={this.onSubmit}
-        />
-
-        <Button
-          title={"Return to Login"}
-          onPress={this.onReturnToLogin}
-        />
-
+        <BigButton>
+          <Text style={style.buttonStyle}>
+            Sign Up!
+          </Text>
+        </BigButton>
 
       </View>
     )
   }
 }
 
-export default Signup
+const style = StyleSheet.create({
+  container: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  buttonStyle: {
+    color: "#fff",
+    fontSize: 24
+  }
+});
+
+export default Signup;

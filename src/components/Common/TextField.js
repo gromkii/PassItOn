@@ -9,7 +9,7 @@ const TextField = (props) => {
       onChangeText={props.onChangeText}
       secureTextEntry={props.secureTextEntry}
       placeholder={props.placeholder}
-      autoCapitalize={false}
+      autoCapitalize="none"
     />
   );
 };

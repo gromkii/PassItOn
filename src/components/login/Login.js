@@ -78,7 +78,7 @@ class Login extends Component {
 
         <BigButton onPress={this.onCreateAccount}>
           <Text style={style.buttonStyle}>
-            Sign up!
+            Create New Account
           </Text>
         </BigButton>
 
@@ -103,7 +103,7 @@ const style = StyleSheet.create({
   },
   buttonStyle: {
     color:"#fff",
-    fontSize:24,
+    fontSize:18,
   }
 });
 

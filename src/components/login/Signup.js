@@ -8,6 +8,8 @@ import axios from 'axios';
 import TextField from '../Common/TextField';
 import BigButton from '../Common/BigButton';
 
+const API_URL = 'http://127.0.0.1:3000/api';
+
 class Signup extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +22,7 @@ class Signup extends Component {
   }
 
   onSubmit = () => {
-    axios.post('http://127.0.0.1:3000/api/auth/signup',{
+    axios.post(API_URL + '/auth/signup', {
       username: this.state.username,
       email: this.state.email,
       password: this.state.password
@@ -30,7 +32,7 @@ class Signup extends Component {
       })
       .catch(err => {
         console.log(err);
-      })
+      });
   };
 
   render() {

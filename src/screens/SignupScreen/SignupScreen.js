@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, KeyboardAvoidingView, Image } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView, Image, View } from 'react-native';
 import LinearGradientBG from '../../components/Common/LinearGradientBG';
 
 import LogoSolo from '../../../assets/LogoSolo.png';
 import Signup from '../../components/login/Signup';
+import LogoWhite from '../../components/Common/LogoWhite';
 
 
 class SignupScreen extends Component {
@@ -20,11 +21,10 @@ class SignupScreen extends Component {
   render() {
     return (
       <KeyboardAvoidingView style={style.container} behavior="position">
-        <LinearGradientBG style={style.imgContainer}>
-          <Image source={LogoSolo} style={style.image} />
-
+        <View style={style.signupContainer}>
+          <LogoWhite />
           <Signup />
-        </LinearGradientBG>
+        </View>
       </KeyboardAvoidingView>
     );
   }
@@ -33,7 +33,8 @@ class SignupScreen extends Component {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: "#FFFEF4",
   },
   imgContainer: {
     alignItems: "center",
@@ -46,6 +47,9 @@ const style = StyleSheet.create({
   image: {
     resizeMode: "contain",
     width: 150,
+  },
+  signupContainer: {
+    alignItems:"center",
   }
 });
 

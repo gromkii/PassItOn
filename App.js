@@ -19,6 +19,16 @@ Navigation.registerComponent("com.pass.ViewNotes", () => ViewNotesScreen);
 Navigation.startSingleScreenApp({
   screen: {
     screen:"com.pass.Login",
-    title:"Login"
-  }
+    title:"Login",
+    navigatorStyle: {
+      navBarBackgroundColor: "#77e9bf",
+      navBarTextColor: "#4a4a4a"
+    }
+  },
+
 });
+
+// 77E9BF Main Green
+// 86BFAA Darker Green
+// FFFEF4 Yellow BG
+// 4A4A4A Dark Grey

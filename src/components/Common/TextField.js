@@ -19,10 +19,10 @@ const style = StyleSheet.create({
     margin:15,
     padding: 10,
     height:55,
-    borderWidth:1,
-    borderColor:"#cccccc",
+    borderWidth:2,
+    borderColor:"#77E9BF",
     borderRadius:5,
-    backgroundColor: "#ACE0E2",
+    backgroundColor: 'rgba(255,255,255,.5)',
     color: "#2c2c2c",
     width: "80%"
   }

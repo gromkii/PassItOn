@@ -11,10 +11,6 @@ import LogoWhite from '../../components/Common/LogoWhite';
 
 
 class LoginScreen extends Component {
-  static navigatorStyle  = {
-    navBarHidden: true,
-  };
-
   loginHandler = (username) => {
     this.props.navigator.push({
       screen:'com.pass.Home',
@@ -37,7 +33,6 @@ class LoginScreen extends Component {
         behavior={"position"}
         style={style.container}
       >
-        <LinearGradientBG>
           <View style={style.loginContainer}>
             <LogoWhite />
             <Login
@@ -45,8 +40,6 @@ class LoginScreen extends Component {
               handleCreateAccount={this.createAccountHandler}
             />
           </View>
-        </LinearGradientBG>
-
       </KeyboardAvoidingView>
     )
 
@@ -56,13 +49,14 @@ class LoginScreen extends Component {
 const style = StyleSheet.create({
   container: {
     flex:1,
+    backgroundColor: "#FFFEF4",
+    justifyContent: "center",
   },
   image: {
     height:250,
     resizeMode: "contain"
   },
   loginContainer: {
-    flex:1,
     alignItems: "center",
     justifyContent: "center",
   }

@@ -20,6 +20,7 @@ class Login extends Component {
     };
   }
 
+  // TODO: Store User ID with AsyncStorage, use for Note uploads/posting.
   onLogin = () => {
     axios.post('http://127.0.0.1:3000/api/auth/login', {
       username: this.state.username,

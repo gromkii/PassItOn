@@ -53,3 +53,4 @@ buck-out/
 */fastlane/screenshots
 ios/main.jsbundle
 ios/main.jsbundle.meta
+src/env.js
